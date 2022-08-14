@@ -1,0 +1,261 @@
+@charset "UTF-8";
+
+/* ----------------------------------------------------------
+  Style
+---------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: sans-serif;
+    font-size: inherit;
+    line-height: 1.5;
+}
+
+body {
+    font-size: 16px;
+}
+
+hr {
+    margin: 2em 0;
+    border: 1px solid #EEE;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin-top: 1em;
+    margin-bottom: .5em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+select {
+    height: 1.5em;
+    background-color: transparent;
+}
+
+ul {
+    list-style: none;
+}
+
+.button-wrapper {
+    margin: 1em 0;
+    padding-left: 4em;
+}
+
+button {
+    padding: 0 1em;
+    text-align: center;
+    background-color: #EEE;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #CCC;
+}
+
+textarea {
+    width: 100%;
+    padding: .5em;
+    border: 1px solid #CCC;
+}
+
+.sr-only {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0.01;
+}
+
+/* ----------------------------------------------------------
+  Layout
+---------------------------------------------------------- */
+
+body {
+    padding-top: 50px;
+    min-height: 100vh;
+}
+
+.main-header {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 0 0.5em;
+}
+
+.main-header h1 {
+    margin: 0;
+}
+
+.gantt-editor__wrapper {
+    z-index: 1;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+}
+
+.gantt {
+    z-index: 1;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 300px;
+}
+
+/* ----------------------------------------------------------
+  Editor
+---------------------------------------------------------- */
+
+.gantt-editor {
+    padding-top: 70px;
+    font-size: 30px;
+}
+
+.gantt-editor__line {
+    box-sizing: border-box;
+    height: 1.5em;
+    border-bottom: 1px solid #CCC;
+    overflow: hidden;
+}
+
+.gantt-editor__line__inner {
+    padding: 0 1em;
+    font-size: 10px;
+}
+
+/* ----------------------------------------------------------
+  App
+---------------------------------------------------------- */
+
+.gantt {
+    overflow: auto;
+    font-size: 30px;
+    line-height: 1;
+}
+
+.gantt * {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Header
+-------------------------- */
+
+.gantt-header {
+    height: 70px;
+    padding-top: 1em;
+    white-space: nowrap;
+}
+
+.gantt-header__date {
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+    width: 1em;
+    text-align: center;
+    vertical-align: top;
+}
+
+.gantt-header__date[data-monthvisible="1"]:before,
+.gantt-header__date:after {
+    content: '';
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 1px;
+    height: 1000px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.gantt-header__date[data-monthvisible="1"]:before {
+    right: 100%;
+    margin-right: -1px;
+    background-color: rgba(0,0,0,0.3);
+}
+
+.gantt-header__date[data-weekend="1"]:after {
+    width: 100%;
+    background-color: rgba(0,0,0,0.04);
+    box-shadow: inset -11px 0 0 -10px rgba(0,0,0,0.1);
+}
+
+.gantt-header__date strong,
+.gantt-header__date span {
+    display: block;
+    z-index: 1;
+    position: relative;
+    text-transform: uppercase;
+    font-size: 0.3em;
+}
+
+.gantt-header__date span {
+    font-size: 0.5em;
+}
+
+.gantt-header__date .month {
+    z-index: 1;
+    position: absolute;
+    top: -1.5em;
+    left: 0;
+    font-size: 0.5em;
+}
+
+.gantt-header__date[data-monthvisible="0"] .month {
+    display: none;
+}
+
+/* Lines
+-------------------------- */
+
+.gantt-lines {
+    z-index: 2;
+    position: relative;
+}
+
+.gantt-line {
+    height: 1.5em;
+    border-left: 1px solid transparent;
+}
+
+.gantt-line__detail {
+    box-sizing: border-box;
+    height: 1em;
+    border-radius: 0.2em;
+    line-height: 1;
+    white-space: nowrap;
+    background-color: #E0E0E0;
+}
+
+.gantt-line__detail .label {
+    display: inline-block;
+    width: 100%;
+    padding: 0.7em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.4em;
+    line-height: 1;
+    vertical-align: top;
+}

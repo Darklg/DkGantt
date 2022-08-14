@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html lang="fr-FR">
+<head>
+<meta charset="UTF-8" />
+<title>DkGantt</title>
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" type="text/css" href="assets/style.css" />
+<script src="assets/script.js"></script>
+</head>
+<body>
+<header class="main-header" id="header">
+    <h1>DkGantt</h1>
+</header>
+
+<div class="gantt-editor__wrapper" id="gantt-editor__wrapper">
+    <ul class="gantt-editor" id="gantt-editor"></ul>
+    <button id="gantt-editor-add" type="button"><span>+</span></button>
+</div>
+
+<div class="gantt">
+<ul class="gantt-header" id="gantt-header"></ul>
+<ul class="gantt-lines" id="gantt-lines"></ul>
+</div>
+
+<script type="text/template" id="tpl-editor-line">
+<li class="gantt-editor__line">
+    <ul class="gantt-editor__line__inner">
+    <li class="box">
+        <label class="sr-only" for="task_name##randnum##">Name :</label>
+        <input placeholder="Task name" name="task_name" id="task_name##randnum##" type="text" value="" />
+    </li>
+    <li class="box">
+        <label for="task_duration##randnum##">Days :</label>
+        <input name="task_duration" id="task_duration##randnum##" min="1" step="1" value="5" type="number"  />
+    </li>
+    </ul>
+</li>
+</script>
+<script type="text/template" id="tpl-header-date">
+<li class="gantt-header__date" data-weekend="##classnameweekend##" data-monthvisible="##monthvisible##">
+    <div class="month">##monthname##</div>
+    <strong>##dayname##</strong>
+    <span>##daynum##</span>
+</li>
+</script>
+<script type="text/template" id="tpl-line">
+<li class="gantt-line">
+    <div class="gantt-line__detail" style="margin-left:##dayfromstart##em;width:##dayduration##em;">
+        <span class="label">##task_name##</span>
+    </div>
+</li>
+</script>
+
+</body>
+</html>
