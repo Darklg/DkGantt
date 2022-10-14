@@ -27,11 +27,15 @@
     <ul class="gantt-editor__line__inner">
     <li class="box">
         <label class="sr-only" for="task_name##randnum##">Name :</label>
-        <input placeholder="Task name" name="task_name" id="task_name##randnum##" type="text" value="" />
+        <input placeholder="Task name" name="task_name" id="task_name##randnum##" type="text" value="##task_name##" />
     </li>
     <li class="box">
-        <label for="task_duration##randnum##">Days :</label>
-        <input name="task_duration" id="task_duration##randnum##" min="1" step="1" value="5" type="number"  />
+        <label for="task_duration##randnum##">Duration :</label>
+        <input name="task_duration" id="task_duration##randnum##" min="1" step="1" value="##task_duration##" type="number" />
+        <label for="task_delay##randnum##">Delay :</label>
+        <input name="task_delay" id="task_delay##randnum##" step="1" value="##task_delay##" type="number"  />
+        <label for="task_restart##randnum##">Restart :</label>
+        <input name="task_restart" id="task_restart##randnum##" type="checkbox" ##task_restart## />
     </li>
     </ul>
 </li>
