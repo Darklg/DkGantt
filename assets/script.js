@@ -46,6 +46,10 @@ function DkGantt() {
         $editor_wrapper.addEventListener('keyup', editor_update_view);
         $editor_wrapper.addEventListener('click', editor_update_view);
 
+        var sortable = Sortable.create($editor, {
+            animation: 150,
+        });
+
         /* Add a button */
         document.getElementById('gantt-editor-add').addEventListener('click', function(e) {
             e.preventDefault();
@@ -151,8 +155,8 @@ function DkGantt() {
             }
 
             tmp_html += get_template('line', {
-                dayfromstart: _start_day,
-                dayduration: _nb_days,
+                distanceleft: 'calc('+_start_day+'*var(--column-width))',
+                distancewidth: 'calc('+_nb_days+'*var(--column-width))',
                 task_name: _task_name
             });
 
